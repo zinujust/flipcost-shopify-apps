@@ -24,7 +24,6 @@ export const createShopifyCSV = (
 
     Object.keys(filteredData).forEach((key: any) => {
       const item = filteredData[key];
-      //const item = filteredData[itemObj];
       let handle = createHandle(
         item["Brand Long Name"],
         item["Description 125 Character"],
@@ -32,7 +31,8 @@ export const createShopifyCSV = (
       );
       let title = `"${createTitle(
         item["Brand Long Name"],
-        item["Description 125 Character"]
+        item["Description 125 Character"],
+        item["Item Number"]
       )}"`;
       let bodyHtml = createBodyHtml(item);
       let vendor = item["Brand Long Name"].replace(/[,]/g, "");
@@ -119,6 +119,12 @@ function createHandle(
   description: string,
   itemNumber: string
 ): string {
+  if (!manufacturerName || !description || !itemNumber) {
+    console.log(
+      `${itemNumber} is missing manufacturer name, description, or item number`
+    );
+  }
+
   try {
     let handle = manufacturerName + "-" + description + "-" + itemNumber;
     handle = handle.replace(/[-®™©,+\.\/_\s()":;']/g, "-").toLowerCase();
@@ -170,8 +176,6 @@ function setPriceWithMarkupOrMap(item: any, map: any) {
           item["Item Number"]
         )
       ) {
-        console.log("MAP FOUND: ", value);
-
         mapFound = value as { [key: string]: any };
         break;
       }
@@ -193,7 +197,13 @@ function setPriceWithMarkupOrMap(item: any, map: any) {
   }
 }
 
-function createTitle(brandName: any, description: any) {
+function createTitle(brandName: any, description: any, itemNumber: any) {
+  if (!brandName || !description || !itemNumber) {
+    console.log(
+      `${itemNumber} is missing brand name, description, or item number`
+    );
+  }
+
   try {
     let title = brandName + " " + description;
     title = title.replace(/["]/g, '""');

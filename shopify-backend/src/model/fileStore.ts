@@ -15,23 +15,23 @@ let fileStorage: FileStorage = {
 };
 
 export const setMap = (data: any): any => {
-  return (fileStorage.map = data);
+  fileStorage.map = data;
 };
 
 export const setHierarchy = (data: any): any => {
-  return (fileStorage.hierarchy = data);
+  fileStorage.hierarchy = data;
 };
 
 export const setImages = (data: any): any => {
-  return (fileStorage.images = data);
+  fileStorage.images = data;
 };
 
 export const setEcdb = (data: any): any => {
-  return (fileStorage.ecdb = data);
+  fileStorage.ecdb = data;
 };
 
 export const setIcaps = (data: any): any => {
-  return (fileStorage.icaps = data);
+  fileStorage.icaps = data;
 };
 
 export const getMap = (): any => {

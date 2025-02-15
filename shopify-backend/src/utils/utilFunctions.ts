@@ -14,14 +14,14 @@ export function readAndExtractSourceData(
   icapsBuffer: any,
   ecdbBuffer: any,
   imagesBuffer: any,
-  hierarchyBuffe: any,
+  hierarchyBuffer: any,
   map: any
 ): FileStorage {
   try {
     setIcaps(readFromExcel(icapsBuffer));
     setEcdb(readFromExcel(ecdbBuffer));
     setImages(readImagesFromExcel(imagesBuffer));
-    setHierarchy(readFromExcel(hierarchyBuffe));
+    setHierarchy(readFromExcel(hierarchyBuffer));
     setMap(readFromExcel(map));
     return getFileStorage();
   } catch {
@@ -119,7 +119,7 @@ export const mergedData = (
   images: any,
   hierarchy: any,
   map: any
-): string => {
+) => {
   try {
     const filteredData = compareAndFilterIcapsWithSyndicatedItems(icaps, ecdb);
     return createShopifyCSV(filteredData, images, hierarchy, map);
