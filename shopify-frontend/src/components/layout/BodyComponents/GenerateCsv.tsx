@@ -63,6 +63,7 @@ const GenerateCsv = () => {
 
     try {
       console.log("Uploading files");
+      console.log("API_URL", API_URL);
 
       const response = await fetch(`${API_URL}/icaps/upload-files`, {
         method: "POST",
