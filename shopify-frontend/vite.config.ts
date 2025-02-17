@@ -10,6 +10,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), tailwindcss()],
-    base: mode === "production" ? env.API_URL : env.VITE_DEV_API_URL,
+    base: mode === "production" ? env.VITE_API_URL : env.VITE_DEV_API_URL,
   };
 });
