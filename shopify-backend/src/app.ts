@@ -2,12 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import router from "./routes/shopifyProductsRoutes";
 import cors from "cors";
-import { METHODS } from "http";
 
 const corsOptions = {
-  origin: "https://flipcost-shopify-apps.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders: "Content-Type, Authorization, Origin",
   credentials: true,
 };
 
