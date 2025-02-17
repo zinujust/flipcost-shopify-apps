@@ -6,7 +6,7 @@ import { METHODS } from "http";
 
 const corsOptions = {
   origin: "https://flipcost-shopify-apps.vercel.app",
-  METHODS: "GET, POST, PUT, DELETE",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: "Content-Type, Authorization",
   credentials: true,
 };
