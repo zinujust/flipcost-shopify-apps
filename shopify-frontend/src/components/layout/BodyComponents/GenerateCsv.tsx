@@ -10,6 +10,10 @@ const GenerateCsv = () => {
     map: null,
   });
 
+  console.log(import.meta.env.VITE_NODE_ENV);
+  console.log(import.meta.env.VITE_API_URL);
+  console.log(import.meta.env.VITE_DEV_API_URL);
+
   const API_URL =
     import.meta.env.NODE_ENV === "production"
       ? import.meta.env.VITE_API_URL

@@ -3,17 +3,17 @@ import dotenv from "dotenv";
 import router from "./routes/shopifyProductsRoutes";
 import cors from "cors";
 
+dotenv.config();
+const app = express();
+
 const corsOptions = {
-  origin: "*",
+  origin: "https://flipcost-shopify-apps.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: "Content-Type, Authorization, Origin",
   credentials: true,
 };
-
-dotenv.config();
-const app = express();
-app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.json());
 
 app.use("/icaps", router);
 
