@@ -7,8 +7,8 @@ import {
   setImages,
   setMap,
   type FileStorage,
-} from "../model/fileStore";
-import { createShopifyCSV } from "./shopifyFunctions";
+} from "../model/fileStore.ts";
+import { createShopifyCSV } from "./shopifyFunctions.ts";
 
 export function readAndExtractSourceData(
   icapsBuffer: any,

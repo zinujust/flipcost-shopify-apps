@@ -1,7 +1,10 @@
 import type { Request, Response } from "express";
 import express from "express";
-import { uploadFields } from "../middleware/multerFunctions";
-import { mergedData, readAndExtractSourceData } from "../utils/utilFunctions";
+import { uploadFields } from "../middleware/multerFunctions.ts";
+import {
+  mergedData,
+  readAndExtractSourceData,
+} from "../utils/utilFunctions.ts";
 
 const router = express.Router();
 
