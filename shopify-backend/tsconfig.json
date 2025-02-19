@@ -15,7 +15,9 @@
     "isolatedModules": true,
     "sourceMap": true,
     "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["express", "multer", "cors"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
