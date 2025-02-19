@@ -4,10 +4,10 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node appendJsExtension.js",
     "start": "node dist/index.js",
     "dev": "nodemon -I --exec node --experimental-specifier-resolution=node --loader ts-node/esm src/index.ts",
-    "postinstall": "tsc"
+    "postinstall": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
