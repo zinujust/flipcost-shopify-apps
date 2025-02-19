@@ -14,8 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "sourceMap": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "typeRoots": ["./node_modules/@types"],
     "types": ["express", "multer", "cors"]
   },
