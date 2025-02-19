@@ -10,8 +10,16 @@ console.log("Environment Variables:");
 console.log("PORT:", process.env.PORT);
 console.log("NODE_ENV:", process.env.NODE_ENV);
 
+const allowedOrigins: string[] = ["https://flipcost-shopify-apps.vercel.app"];
+
 const corsOptions = {
-  origin: "https://flipcost-shopify-apps.vercel.app",
+  origin: (origin: any, callback: any) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: "Content-Type, Authorization, Origin",
   credentials: true,
