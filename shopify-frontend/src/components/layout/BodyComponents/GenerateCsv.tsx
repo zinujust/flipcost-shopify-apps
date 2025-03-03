@@ -11,13 +11,10 @@ const GenerateCsv = () => {
   });
 
   console.log(import.meta.env.VITE_NODE_ENV);
-  console.log(import.meta.env.VITE_API_URL);
+  console.log(import.meta.env.VITE_HOST);
   console.log(import.meta.env.VITE_DEV_API_URL);
 
-  const API_URL =
-    import.meta.env.NODE_ENV === "production"
-      ? import.meta.env.VITE_API_URL
-      : `${import.meta.env.VITE_DEV_API_URL}`;
+  const API_URL = import.meta.env.VITE_HOST;
 
   const [icaps, setIcaps] = useState<File | null>(null);
   const [ecdb, setEcdb] = useState<File | null>(null);
