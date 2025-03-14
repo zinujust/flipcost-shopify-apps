@@ -7,23 +7,14 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
-// const allowedOrigins: string[] = ["https://flipcost-shopify-apps.vercel.app"];
+const corsOptions = {
+  origin: "*",
+  methods: "*",
+  allowedHeaders: "*",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
-// const corsOptions = {
-//   origin: (origin: any, callback: any) => {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   allowedHeaders: "Content-Type, Authorization, Origin",
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
-app.use(cors());
-
-app.use("/icaps", router);
+app.use("/csv", router);
 
 export default app;

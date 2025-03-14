@@ -10,10 +10,6 @@ const GenerateCsv = () => {
     map: null,
   });
 
-  console.log(import.meta.env.VITE_NODE_ENV);
-  console.log(import.meta.env.VITE_HOST);
-  console.log(import.meta.env.VITE_DEV_API_URL);
-
   const API_URL = import.meta.env.VITE_HOST;
 
   const [icaps, setIcaps] = useState<File | null>(null);
@@ -66,7 +62,7 @@ const GenerateCsv = () => {
       console.log("Uploading files");
       console.log("API_URL", API_URL);
 
-      const response = await fetch(`${API_URL}/icaps/upload-files`, {
+      const response = await fetch(`http://${API_URL}/icaps/upload-files`, {
         method: "POST",
         body: formData,
       });

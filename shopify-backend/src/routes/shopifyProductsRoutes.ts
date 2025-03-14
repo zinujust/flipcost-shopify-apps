@@ -7,7 +7,7 @@ const router = express.Router();
 
 debugger;
 router.post(
-  "/upload-files",
+  "/shopifyProductsUpload",
   uploadFields,
   (req: Request, res: Response): void => {
     const files = req.files as
@@ -67,8 +67,9 @@ router.post(
       );
 
       res.status(200).send(data);
-    } catch {
-      throw new Error(`An error occurred in response`);
+    } catch (error) {
+      console.error("An error occurred in response:", error);
+      res.status(500).send({ message: "An internal server error occurred." });
     }
   }
 );
